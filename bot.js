@@ -458,7 +458,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: 'Galaxy\'s translator',
+                  name: 'Kingro's translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
@@ -469,7 +469,7 @@ client.on('message', message => {
                 timestamp: new Date(),
                 footer: {
                   icon_url: client.user.avatarURL,
-                  text: "Galaxy"
+                  text: "Kingro"
                 }
             }}
             )
@@ -776,8 +776,8 @@ message.channel.send(
 client.on('message', message => {
                 if(message.content === prefix + "inv") {
                     let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: Invite Galaxy Bot!**")
-                    .setURL("https://discordapp.com/oauth2/authorize?client_id=435392018693488641&scope=bot&permissions=2146958591");
+                    embed.setTitle("**:arrow_right: Invite Kingro Bot!**")
+                    .setURL("https://discordapp.com/api/oauth2/authorize?client_id=549696459843305474&permissions=0&scope=bot');
                    message.channel.sendEmbed(embed);
                   }
 });
@@ -1274,7 +1274,7 @@ message.channel.send(`**:white_check_mark: ${user.tag} banned from the server ! 
 
 }
 });
-client.login('NDgwNzM4NTIzNjk2MjAxNzI5.Dl9PIA.48CAMtPWvyvZawa9M-KqwtvVLlY');
+
 client.on('message', message => {
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
@@ -1507,8 +1507,8 @@ if (message.content.startsWith(prefix + 'mypoints')) {
   })
 });
 client.on('message', message => {
-    if(message.content == '^vip-servers') {
-             if(!message.author.id === '434845976050794516') return;
+    if(message.content == 'K.vip-servers') {
+             if(!message.author.id === '434282754016935937') return;
     var gimg;
     var gname;
     var gmemb;
@@ -3008,7 +3008,7 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id == 410835593451405312) return;
+  if (message.author.id == 434282754016935937) return;
 
 
 if (message.content.startsWith(prefix + 'playing')) {
