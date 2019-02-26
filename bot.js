@@ -97,8 +97,7 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 『${prefix}inv/لدعوة البوت الى سيرفرك』
 『${prefix}support/سيرفر الدعم』
 『${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت』
-『${prefix}used <code>/اذا كسبت معنا كود استعملو كددا』
-『${prefix}ticket/لعمل تيكت』
+『${prefix}new/لعمل تيكت』
 **
   `
 ,`
