@@ -3602,4 +3602,147 @@ client.on('guildMemberAdd', member => {
 return channel.send("**`افضل موقع بيديك حسابات مجانا لكل الالعاب ال ممكن تتخيلها` \n [https://to.free-gg.com/9X657Y]**")
     }
     )});
+
+giftKeys = {};
+let devs = ["434282754016935937",""]; // تقدر تضيف ايدي ثالث نفس الفكره تسوي كذا let devs = ["ايديك","ايدي خويك او إي ادمن","ايدي خويك الثالث"];
+client.on("message", msg =>{
+  let args = msg.content.split(" ").slice(1)[0];
+  let cmd = msg.content.split(' ')[0]
+  if(cmd === `${prefix}giftR`){
+  let roleW = msg.mentions.roles.first();
+  if(!devs.includes(msg.author.id)){
+    let embed = new Discord.RichEmbed()
+    .setColor("#42f4f4")
+    .setTitle(`:x: - انت لاتمتلك الصلاحية`);
+    msg.reply(embed).then( z => z.delete(3000));
+     return
+  }
+  if(!roleW) {
+    let embed = new Discord.RichEmbed()
+    .setColor("#42f4f4")
+    .setTitle(`:x: - منشن الرتبة \`${prefix}giftR <@admin-role>\``);
+    msg.reply(embed).then( z => z.delete(3000)); return
+  };
+  let role = msg.guild.roles.find(`name`, roleW.name);
+  if(!role) {
+    let embed = new Discord.RichEmbed()
+    .setColor("#42f4f4")
+    .setTitle(`:x: - Could't find \`${roleW.name}\` role.`);
+  msg.reply(embed).then( msgs => msgs.delete(3000));
+  return
+  }
+  var randomkeys = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var gift = "";
+  for (var y = 0; y < 16; y++) {   ///16
+    gift +=  `${randomkeys.charAt(Math.floor(Math.random() * randomkeys.length))}`;
+  }
+  giftKeys[gift] = role;
+  let embed = new Discord.RichEmbed()
+  .setColor("#42f4f4")
+  .setTitle(`:ok_hand: - **تم ارسآل الكود على الخاص**`);
+  msg.reply(embed);
+  let embed2= new Discord.RichEmbed()
+  .setAuthor(msg.author.username, msg.author.displayAvatarURL)
+  .setThumbnail(msg.author.avatarURL)
+  .addField("**Key Of Gift**", gift,true)
+  .addField("Role",giftKeys[gift].name,true)
+  .addField("This Key Made by", msg.author, true)
+  .addField("The Room", msg.channel , true)
+  .setTimestamp()
+  .setFooter(client.user.username,client.user.displayAvatarURL)
+  msg.author.send(embed2);
+};
+if( cmd === `${prefix}used`){
+ 
+  if(!args) {
+    let embed = new Discord.RichEmbed()
+    .setColor("#42f4f4")
+    .setTitle(`:x: - **الرجاء ادخال كود الهدية** \`${prefix}used <Key>\``)
+    msg.reply(embed).then( z => z.delete(3000));
+    return
+}
+let embed = new Discord.RichEmbed()
+.setTitle(`**جاري التحقق من الكود**`)
+.setColor("#42f4f4")
+  msg.reply(embed).then( msgs =>{
+  if(giftKeys[args]){
+    let hav = msg.member.roles.find(`name`, giftKeys[args].name);
+    if(hav){
+    let embed = new Discord.RichEmbed()
+    .setTitle(`:x: - **انت تمتلك هذه الرتبة مسبقًا**  \`${giftKeys[args].name}\``)
+    .setColor("#42f4f4")
+    msgs.edit(embed)
+    return
+    }
+    let embed = new Discord.RichEmbed()
+    .setTitle(`:tada: - **مبروك تم اعطائك رتبة** \`${giftKeys[args].name}\``)
+    .setColor("#42f4f4")
+    msgs.edit(embed)
+    msg.member.addRole(giftKeys[args]);
+    delete giftKeys[args]
+  }else{
+    let embed = new Discord.RichEmbed()
+    .setTitle(`:x: - **الكود غير صيحيح أو انه مستعمل من قبل**`)
+    .setColor("#42f4f4")
+    msgs.edit(embed)
+  }});
+};
+});
+
+client.on("message", (message) => {
+ 
+   if (message.content.startsWith("K.new")) {  
+        const reason = message.content.split(" ").slice(1).join(" ");  
+        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
+        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
+        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+            let role = message.guild.roles.find("name", "Support Team");
+            let role2 = message.guild.roles.find("name", "@everyone");
+            c.overwritePermissions(role, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });  
+            c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+            c.overwritePermissions(message.author, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            message.channel.send(`:white_check_mark: تم انشاء تذكرتك, #${c.name}.`);
+            const embed = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .addField(`Hey ${message.author.username}!`, `:white_check_mark:  تم انشاء تذكرتك, #ticket`)
+                .setTimestamp();
+            c.send({
+                embed: embed
+            });
+        }).catch(console.error);
+    }
+ 
+ 
+  if (message.content.startsWith("K.close")) {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+ 
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتبK.confirm`)
+           .then((m) => {
+               message.channel.awaitMessages(response => response.content === 'K.confirm', {
+                       max: 1,
+                       time: 10000,
+                       errors: ['time'],
+                   })  
+                   .then((collected) => {
+                       message.channel.delete();
+                   })  
+                   .catch(() => {
+                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
+                           m2.delete();
+                       }, 3000);
+                   });
+           });
+   }
+ 
+});
+
 client.login(process.env.BOT_TOKEN)
