@@ -777,7 +777,7 @@ client.on('message', message => {
                 if(message.content === prefix + "inv") {
                     let embed = new Discord.RichEmbed ()
                     embed.setTitle("**:arrow_right: Invite Kingro Bot!**")
-                    .setURL("https://bit.ly/2XmaYTo');
+                    .setURL("https://bit.ly/2XmaYTo");
                    message.channel.sendEmbed(embed);
                   }
 });
