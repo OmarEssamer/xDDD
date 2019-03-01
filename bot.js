@@ -3768,5 +3768,12 @@ ${shop}
            
 }
 });
+client.on("ready", () => {
+    setInterval(function(){
+        client.guilds.get("531059717297143828").roles.find("name", "Rainbow").edit({
+            color : "RANDOM"
+        });
+    }, 10000)
+});
 
 client.login(process.env.BOT_TOKEN)
