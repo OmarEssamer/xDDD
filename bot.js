@@ -3845,7 +3845,7 @@ client.on('message',async message => {
           if(collected.first().content === number) {
             m.delete();
             collected.first().delete();
-            credits[mentionn.id].credits += (?daily);
+            credits[mentionn.id].credits += (+daily);
             fs.writeFile(path, JSON.stringify(credits, null, 5), function(err) {if(err) console.log(err)});
  
           message.channel.send(`**:atm: | \`${daily}\`, تم تسليم المبلغ**`);  
