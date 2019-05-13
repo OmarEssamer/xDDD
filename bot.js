@@ -72,7 +72,6 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
 『${prefix}server/يعرض لك معلومات عن السيرفر』
 『${prefix}bot/يعرض لك كل معلومات البوت』
 『${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات』
-『${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر 』
 『${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه』
 『 مثال : invinfo m82n8P
 『${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 』
@@ -357,7 +356,7 @@ client.on('message', function(msg) {
             .setAuthor(client.user.username,client.user.avatarURL)
             .setThumbnail(client.user.avatarURL)
             .setColor('RANDOM')
-            .setTitle('``INFO Kingro Bot`` ')
+            .setTitle('``INFO FaloFy Bot`` ')
             .addField('``My Ping``' , [`${Date.now() - message.createdTimestamp}` + 'MS'], true)
             .addField('``RAM Usage``', `[${(process.memoryUsage().rss / 1048576).toFixed()}MB]`, true)
             .addField('``servers``', [client.guilds.size], true)
@@ -454,7 +453,7 @@ client.on('message', message => {
             message.channel.send({embed: {
                 color: 3447003,
                 author: {
-                  name: 'Kingro\'s translator',
+                  name: 'FaloFy\'s translator',
                   icon_url: client.user.avatarURL
                 },
                 fields: [{
@@ -465,7 +464,7 @@ client.on('message', message => {
                 timestamp: new Date(),
                 footer: {
                   icon_url: client.user.avatarURL,
-                  text: "Kingro"
+                  text: "Falofy"
                 }
             }}
             )
@@ -769,27 +768,8 @@ message.channel.send(
 );
 };
 });
-client.on('message', message => {
-                if(message.content === prefix + "inv") {
-                    let embed = new Discord.RichEmbed ()
-                    embed.setTitle("**:arrow_right: Invite Kingro Bot!**")
-                    .setURL("https://discordapp.com/api/oauth2/authorize?client_id=549696459843305474&permissions=0&scope=bot");
-                   message.channel.sendEmbed(embed);
-                  }
-});
 
 
-   client.on('message', message => {
-     if (message.content === "?support") {
-     let embed = new Discord.RichEmbed()
-  .setAuthor(message.author.username)
-  .setColor("#9B59B6")
-  .addField(" ** :gear: Server Support :gear: **" , "  **https://discord.gg/2MsXKSm**")
-     
-     
-  message.channel.sendEmbed(embed);
-    }
-});
 client.on('message' , message => {
 if (message.author.bot) return;
 if (message.content.startsWith(prefix + "contact")) {
@@ -800,7 +780,7 @@ if (!message.channel.guild) return;
 let args = message.content.split(" ").slice(1).join(" ");
 
 
-client.users.get("551045462287843353").send(
+client.users.get("554748168873443330").send(
     "\n" + "**" + "● السيرفر :" + "**" +
     "\n" + "**" + "» " + message.guild.name + "**" +
     "\n" + "**" + " ● المرسل : " + "**" +
@@ -857,7 +837,7 @@ if(message.content.startsWith('?bc')) {
 if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
 if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
 let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
-let copy = "Kingro";
+let copy = "FaloFy";
 let request = `Requested By ${message.author.username}`;
 if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(`**هل أنت متأكد من إرسالك البرودكاست؟ \nمحتوى البرودكاست:** \` ${args}\``).then(msg => {
 msg.react('✅')
@@ -1504,7 +1484,7 @@ if (message.content.startsWith(prefix + 'mypoints')) {
 });
 client.on('message', message => {
     if(message.content == '^vip-servers') {
-             if(!message.author.id === '551045462287843353') return;
+             if(!message.author.id === '554748168873443330') return;
     var gimg;
     var gname;
     var gmemb;
@@ -1959,28 +1939,7 @@ message.channel.sendEmbed(sh);
     spee[id] = (new Date).getTime()
 }
 });
-client.on('guildCreate', guild => {
-         const embed = new Discord.RichEmbed()
-     .setColor("RED")
-     .setTitle('Click Here To Add Bot .!')
-     .setURL('https://discordapp.com/api/oauth2/authorize?client_id=549696459843305474&permissions=0&scope=bot')
-  .setDescription(`**
-  New Server Add Kingro Bot ✅
-اسم السيرفر: ${guild.name}
-صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("546757722574553115").sendEmbed(embed)
-});
-client.on('guildDelete', guild => {
-         const embed = new Discord.RichEmbed()
-     .setColor("GOLD")
-     .setTitle('Click Here To Add Bot .!')
-     .setURL('https://discordapp.com/api/oauth2/authorize?client_id=549696459843305474&permissions=0&scope=bot')
-  .setDescription(`**
-  Server Kicked Kingro Bot :cry:
-اسم السيرفر: ${guild.name}
-صاحب السيرفر: ${guild.owner}**`);
-client.channels.get("546757722574553115").sendEmbed(embed)
-});
+
 var type = [
     {
             "type": "ما هو أصل كلمة أطلس التي تطلق على كتاب الخرائط ؟",
@@ -2354,7 +2313,7 @@ const cuttweet = [     'كت تويت ‏| تخيّل لو أنك سترسم ش�
   var embed = new Discord.RichEmbed()
   .setColor('RANDOM')
    .setThumbnail(message.author.avatarURL) 
- .addField('Kingro bot' ,
+ .addField('FaloFy bot' ,
   `${cuttweet[Math.floor(Math.random() * cuttweet.length)]}`)
   message.channel.sendEmbed(embed);
   console.log('[id] Send By: ' + message.author.username)
@@ -2609,7 +2568,7 @@ client.on('message', message => {
 var embed = new Discord.RichEmbed()
 .setColor('RANDOM')
  .setThumbnail(message.author.avatarURL) 
-.addField('Kingro Bot' ,
+.addField('FaloFy Bot' ,
 `${Za7f[Math.floor(Math.random() * Za7f.length)]}`)
 message.channel.sendEmbed(embed);
 console.log('[38ab] Send By: ' + message.author.username)
@@ -3059,7 +3018,7 @@ ${prefix}queue ⇏ لمعرفة قآئمة التشغيل
             if(!message.channel.guild) return;
 let args = message.content.split(' ').slice(1).join(' ');
 if (message.content.startsWith('?users')){
- if(!message.author.id === '551045462287843353') return;
+ if(!message.author.id === '554748168873443330') return;
 message.channel.sendMessage('جار ارسال الرسالة |:white_check_mark:')
 client.users.forEach(m =>{
 m.sendMessage(args)
@@ -3070,37 +3029,37 @@ client.on('message', message => {
   if (!message.content.startsWith(prefix)) return;
   var args = message.content.split(' ').slice(1);
   var argresult = args.join(' ');
-  if (message.author.id == 551045462287843353) return;
+  if (message.author.id == 554748168873443330) return;
 
 
 if (message.content.startsWith(prefix + 'playing')) {
-if (message.author.id !== '551045462287843353') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '554748168873443330') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setGame(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغيير الحالة`)
 } else
 
 if (message.content.startsWith(prefix + 'streem')) {
-if (message.author.id !== '551045462287843353') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '554748168873443330') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setGame(argresult, "http://twitch.tv/y04zgamer");
     message.channel.sendMessage(`**${argresult}** :تم تغيير الحالة الى ستريمنج`)
 } else
 
 if (message.content.startsWith(prefix + 'setname')) {
-if (message.author.id !== '551045462287843353') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '554748168873443330') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
   client.user.setUsername(argresult).then
       message.channel.sendMessage(`**${argresult}** : تم تغير الأسم`)
   return message.reply("**لا تستطيع تغير الأسم الا بعد ساعتين**");
 } else
 
 if (message.content.startsWith(prefix + 'setavatar')) {
-if (message.author.id !== '551045462287843353') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '554748168873443330') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
 client.user.setAvatar(argresult);
     message.channel.sendMessage(`**${argresult}** : تم تغير صورة البوت`);
 } else
 
 
 if (message.content.startsWith(prefix + 'watching')) {
-if (message.author.id !== '551045462287843353') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
+if (message.author.id !== '554748168873443330') return message.reply('** هذا الأمر فقط لصاحب البوت و شكراًً **')
     client.user.setActivity(argresult, {type : 'watching'});
  message.channel.sendMessage(`**${argresult}** : تم تغيير الووتشينق الى`)
 }
@@ -3867,7 +3826,7 @@ client.on('message',async message => {
     setTimeout(() => {
       cool.shift(message.author.id);
       message.author.send("**:atm: | \`Daily\`, يمكنك الحصول على الكردت المجانية الان**").catch();
-    }, ms("551045462287843353"));
+    }, ms("554748168873443330"));
   }
 });
 
