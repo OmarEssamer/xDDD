@@ -3727,13 +3727,6 @@ ${shop}
            
 }
 });
-client.on("ready", () => {
-    setInterval(function(){
-        client.guilds.get("531059717297143828").roles.find("name", "Rainbow").edit({
-            color : "RANDOM"
-        });
-    }, 10000)
-});
 
 const cool = [];
 client.on('message',async message => {
